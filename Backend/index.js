@@ -3,6 +3,8 @@ const multer = require("multer");
 const cors = require("cors");
 const docxToPDF = require("docx-pdf");
 const path = require("path");
+const phantomjs = require('phantomjs-prebuilt');
+console.log('PhantomJS Path:', phantomjs.path);
 
 const app = express();
 const port = 3000;

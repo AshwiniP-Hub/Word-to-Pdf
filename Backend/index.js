@@ -9,8 +9,8 @@ console.log('PhantomJS Path:', phantomjs.path);
 const app = express();
 const port = 3000;
 
-app.use(cors());
-
+// app.use(cors());
+app.use(cors({ origin: 'http://localhost:5173' }));
 // settting up the file storage
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {

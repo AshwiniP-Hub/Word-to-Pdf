@@ -3,14 +3,11 @@ const multer = require("multer");
 const cors = require("cors");
 const docxToPDF = require("docx-pdf");
 const path = require("path");
-const phantomjs = require('phantomjs-prebuilt');
-console.log('PhantomJS Path:', phantomjs.path);
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000; // Correctly defined here to allow dynamic assignment
+app.use(cors());
 
-// app.use(cors());
-app.use(cors({ origin: 'http://localhost:5173' }));
 // settting up the file storage
 const storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -58,4 +55,3 @@ app.listen(port, () => {
     console.log(`Server is listening on port ${port}`);
 });
 
-// const port = process.env.PORT || 3000;
